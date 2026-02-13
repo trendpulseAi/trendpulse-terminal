@@ -65,7 +65,13 @@
         err.textContent = "";
 
         try {
-            const response = await fetch(`${API_URL}?key=${key}`);
+            const response = await fetch(API_URL, {
+    method: "GET",
+    headers: {
+        "ngrok-skip-browser-warning": "69420"
+    }
+});
+
             if (response.status === 200) {
                 localStorage.setItem('tp_license_key', key);
                 document.getElementById('login-overlay').style.display = 'none';
